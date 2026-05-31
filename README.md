@@ -73,20 +73,13 @@ python ranking/ranker.py --mode train
 # Start API
 uvicorn serving.api:app --reload
 ```
+## Results
 
-## Evaluation
+| Stage | Metric | Value |
+|-------|--------|-------|
+| Retrieval | Recall@100 | 0.0130 |
+| Ranking | NDCG@12 | 0.0062 |
+| Ranking | Recall@12 | 0.0056 |
 
-| Metric | Description |
-|--------|-------------|
-| Recall@K | Fraction of relevant items in top-K |
-| NDCG@K | Normalized discounted cumulative gain |
-| MAP@K | Mean average precision |
-
-## Resume talking points
-
-- Two-stage retrieval + ranking pipeline (mirrors production Myntra/Netflix architecture)
-- Contrastive learning with in-batch negatives for embedding training
-- FAISS IVF-Flat index for sub-millisecond ANN retrieval over 100K+ items
-- LightGBM ranker with interaction features (CTR signals, price sensitivity)
-- Evaluated with NDCG@10 and Recall@100 — standard industry metrics
-- FastAPI serving endpoint with sub-50ms P99 latency
+## Kaggle Notebook
+Full training run: [View on Kaggle](https://www.kaggle.com/code/aarushii26/notebook7e9030ac57)
