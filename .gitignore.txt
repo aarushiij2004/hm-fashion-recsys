@@ -1,0 +1,10 @@
+data/raw/
+data/processed/
+artifacts/
+__pycache__/
+*.pyc
+*.pt
+*.npy
+*.lgb
+*.pkl
+*.parquet
